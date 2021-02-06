@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>plotCMDS</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-07-09"><meta name="DC.source" content="plotCMDS_doc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>plotCMDS</h1><!--introduction--><p>Processes the output data of a finished simulation and plots the two-dimensional (2D) spectrum in absolute values as well as its real and imaginary part.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Detailed Description</a></li><li><a href="#5">Examples</a></li></ul></div><h2>Syntax<a name="1"></a></h2><div><ul><li>plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type)</li><li>plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index)</li></ul></div><h2>Description<a name="2"></a></h2><div><ul><li>plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type) plots the result from a three-pulse simulation.</li></ul></div><div><ul><li>plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index) plots the result from a four-pulse simulation.</li></ul></div><h2>Detailed Description<a name="3"></a></h2><div><ul><li>plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type) <i>plotContribution</i> represents the set of three weighting factors that are unique for a specific nonlinear signal contribution from a three-pulse simulation (see also Ref. [1]). Thus, <i>plotContribution</i> needs to be a vector with length 3. <i>ax1_quantum</i> and <i>ax2_quantum</i> are central frequency scaling factors of the first and the second frequency axes, respectively. These two values are directly correlated with the choice of <i>plotContribution</i>. <i>nfold_zeropadding</i> corresponds to an integer <i>n</i> that causes <i>n</i>-fold zero padding in the data processing. For applying no zero padding, set <i>nfold_zeropadding</i> to <tt>1</tt> . <i>type</i> expects either <tt>'rephasing'</tt> or <tt>'nonrephasing'</tt> which must also be chosen according to the values for <i>plotContribution</i>. Choosing <i>type</i> appropriately ensures that every signal contribution is plotted with positive values for each frequency axis.</li></ul></div><div><ul><li>plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index) expects a vector with length 4 for <i>plotContribution</i>. In addition to the remaining arguments, <i>ax2_index</i> has to be provided as an additional parameter which denotes the index of an array element of the delay between the second and third pulse (also called population time <img src="plotCMDS_doc_eq14047577632175690031.png" alt="$T$">).</li></ul></div><p>In both cases, <i>plotCMDS</i> performs a scaling of initial time domain values by a factor of 0.5 according to a procedure described in Ref. [2] before two-dimensional fast Fourier transform (FFT) by the <tt>fft2</tt> function. The scaling procedure suppresses spurious "ridges" along both frequency dimensions.</p><p>For additional information about <i>plotCMDS</i> see: <a href="https://qd-toolbox.org/tutorials/#chapter7">https://qd-toolbox.org/tutorials/#chapter7</a>.</p><p>References</p><p>[1] H.-S. Tan, <i>J. Chem. Phys.</i> <b>129</b> , 124501 (2008).</p><p>[2] G. Otting, H. Widmer, G. Wagner, K. W&uuml;thrich, <i>J. Magn. Reson.</i> <b>66</b> , 187-193 (1986).</p><h2>Examples<a name="5"></a></h2><pre class="language-matlab">c.plotCMDS([-1 2 -1],1,1,2,<span class="string">'rephasing'</span>);
+</pre><p>will display a photon echo 2D spectrum that was simulated by using a three-pulse sequence. Here, [-1 2 -1] are the photon-echo specific weighting factors and the following two numbers represent the fact that the expected signals oscillate at one quantum of the employed laser spectrum over both interpulse time delays. The next number denotes two-fold zero padding while the last argument 'rephasing' is chosen to plot the signal with positive frequency axes.</p><pre class="language-matlab">c.plotCMDS([-1 1 1 -1],1,1,2,<span class="string">'rephasing'</span>,1);
+</pre><p>will display the photon echo 2D spectrum at a population time of <img src="plotCMDS_doc_eq04810077849436255990.png" alt="$T = 0$"> from the output of a four-pulse simulation. Here, the two numbers after the array of <i>plotContribution</i> correspond to the frequency scaling factors of the frequency axes that are generated from Fourier transform along the first and the third interpulse delay.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% plotCMDS
+% Processes the output data of a finished simulation and plots the
+% two-dimensional (2D) spectrum in absolute values as well as its real
+% and imaginary part.
+%% Syntax
+% * plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type)
+% * plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index)
+
+%% Description
+% * plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type)
+% plots the result from a three-pulse simulation. 
+%
+% * plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index) 
+% plots the result from a four-pulse simulation.
+
+
+%% Detailed Description
+% * plotCMDS(plotContribution,ax1_quantum,ax2_quantum,nfold_zeropadding,type) _plotContribution_ represents the set of three weighting
+% factors that are unique for a specific nonlinear signal contribution from a three-pulse simulation (see
+% also Ref. [1]). Thus, _plotContribution_ needs to be a vector with length 3.  
+% _ax1_quantum_ and _ax2_quantum_ are central
+% frequency scaling factors of the first and the second frequency axes, respectively. These two values are directly correlated 
+% with the choice of _plotContribution_. 
+% _nfold_zeropadding_ corresponds
+% to an integer _n_ that causes _n_-fold zero padding in the data processing. For applying no zero padding, set _nfold_zeropadding_ to |1| . 
+% _type_ expects either |'rephasing'| or |'nonrephasing'| which must also be
+% chosen according to the values for _plotContribution_. Choosing _type_ appropriately ensures that every signal contribution is plotted 
+% with positive values for each frequency axis.
+%
+% *  plotCMDS(plotContribution,ax1_quantum,ax3_quantum,nfold_zeropadding,type,ax2_index) expects a vector with length 4 for _plotContribution_. 
+% In addition to the remaining arguments, _ax2_index_ has to be provided as an additional parameter which denotes the index
+% of an array element of the delay between the second and third pulse (also called population time $T$).
+% 
+% In both cases, _plotCMDS_ performs a scaling of initial time domain values by a factor of 0.5 according to a procedure described in Ref. [2]
+% before two-dimensional fast Fourier transform (FFT) by the |fft2|
+% function. The scaling procedure suppresses spurious "ridges" along both frequency
+% dimensions.
+%
+% For additional information about _plotCMDS_ see:
+% <https://qd-toolbox.org/tutorials/#chapter7>.
+%
+%
+% References
+%
+% [1] H.-S. Tan, _J. Chem. Phys._ *129* , 124501 (2008).
+%
+% [2] G. Otting, H. Widmer, G. Wagner, K. Wüthrich, _J. Magn. Reson._ *66* , 187-193 (1986).
+%%
+% 
+%% Examples
+%%
+%
+%   c.plotCMDS([-1 2 -1],1,1,2,'rephasing');
+%
+% will display a photon echo 2D spectrum that was simulated by using a
+% three-pulse sequence. Here, [-1 2 -1] are the photon-echo specific
+% weighting factors and the following two numbers represent the fact that the
+% expected signals oscillate at one quantum of the employed laser
+% spectrum over both interpulse time delays. The next number denotes two-fold zero padding
+% while the last argument 'rephasing' is chosen to plot the signal with
+% positive frequency axes.
+
+%%
+%
+%   c.plotCMDS([-1 1 1 -1],1,1,2,'rephasing',1);
+%
+% will display the photon echo 2D spectrum at a population time of $T = 0$
+% from the output of a four-pulse simulation. Here, the two numbers after the 
+% array of _plotContribution_ correspond to the frequency scaling factors of
+% the frequency axes that are generated from Fourier transform along the
+% first and the third interpulse delay.
+##### SOURCE END #####
+--></body></html>

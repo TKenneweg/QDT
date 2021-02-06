@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding="utf-8"?>
+<toc version="2.0">
+
+    <tocitem target="setState_doc.html">setState </tocitem>
+    <tocitem target="addCoupling_doc.html">addCoupling </tocitem>
+    <tocitem target="addDissipation_doc.html">addDissipation </tocitem>
+    <tocitem target="animateBlochSphere_doc.html">animateBlochsphere </tocitem>
+    <tocitem target="blochsphere_doc.html">blochsphere </tocitem>
+    <tocitem target="fft_doc.html">fft </tocitem>
+    <tocitem target="getBlochvector_doc.html">getBlochvector </tocitem>
+    <tocitem target="getConcurrence_doc.html">getConcurrence </tocitem>
+    <tocitem target="getEnergy_doc.html">getEnergy </tocitem>
+
+</toc>

@@ -1,0 +1,114 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>plotRoh</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-06"><meta name="DC.source" content="plotRoh_doc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>plotRoh</h1><!--introduction--><p>creates multiple subplots, one for each diagonal element of the density matrix. Very popular</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Example: Qbit in a cavity</a></li></ul></div><h2>Syntax<a name="1"></a></h2><div><ul><li>plotRoh</li><li>plotRoh(box)</li></ul></div><h2>Description<a name="2"></a></h2><p>plotRoh(box) creats subplots of all elements of the density matrix. Since this is often unfeasible, because even relatively small systems have to many density matrix entries to visualize them all at once, an optional box parameter can be given to the method. Such a box is defined by a vector with for entries that define the upper left and lower right corner.</p><h2>Example: Qbit in a cavity<a name="3"></a></h2><pre class="codeinput">clear; close <span class="string">all</span>;
+s = System;
+a = Nlevel(1);
+s.addEntity(a,<span class="string">'qbit'</span>);
+s.addEntity(Qoscillator(3,1),<span class="string">'cavity'</span>);
+s.addCoupling(<span class="string">'qbit'</span>,<span class="string">'cavity'</span>,0.05);
+s.addDissipation(<span class="string">'qbit'</span>,200);
+s.addExternalField(Gausspulse(0.04,100,30,1),<span class="string">'qbit'</span>);
+s.setTmax(400);
+s.setTimestep(0.1);
+s.simulate;
+
+figure(<span class="string">'units'</span>,<span class="string">'normalized'</span>,<span class="string">'outerposition'</span>,[0 0 1 1]) <span class="comment">%make full screen figure</span>
+s.plotRoh([2 2 4 4]); <span class="comment">%plot a box section of the density matrix, wiht upper left corner (2,2) and lower right corner (4,4).</span>
+</pre><img vspace="5" hspace="5" src="plotRoh_doc_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% plotRoh
+% creates multiple subplots, one for each diagonal element of the density matrix. Very popular
+%% Syntax 
+% * plotRoh
+% * plotRoh(box)
+%% Description
+% plotRoh(box) creats subplots of all elements of the density matrix. Since this is often unfeasible, because even relatively small 
+% systems have to many density matrix entries to visualize them all at once, an optional box parameter can be given to the method. 
+% Such a box is defined by a vector with for entries that define the upper left and lower right corner.
+
+
+%% Example: Qbit in a cavity
+clear; close all;
+s = System;
+a = Nlevel(1);
+s.addEntity(a,'qbit');
+s.addEntity(Qoscillator(3,1),'cavity');
+s.addCoupling('qbit','cavity',0.05);
+s.addDissipation('qbit',200);
+s.addExternalField(Gausspulse(0.04,100,30,1),'qbit');
+s.setTmax(400);
+s.setTimestep(0.1);
+s.simulate;
+
+figure('units','normalized','outerposition',[0 0 1 1]) %make full screen figure
+s.plotRoh([2 2 4 4]); %plot a box section of the density matrix, wiht upper left corner (2,2) and lower right corner (4,4). 
+
+
+##### SOURCE END #####
+--></body></html>

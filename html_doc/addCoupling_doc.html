@@ -1,0 +1,183 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>addCoupling</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-23"><meta name="DC.source" content="addCoupling_doc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>addCoupling</h1><!--introduction--><p>Implements dipole coupling between two subsystems.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Detailed Description and Examples</a></li><li><a href="#4">Example of a qbit coupled to a mode of the lightfield.</a></li><li><a href="#5">Example of specified couplings a seen in the Figure below</a></li></ul></div><h2>Syntax<a name="1"></a></h2><div><ul><li>addCoupling(name1,name2,y)</li><li>addCoupling(name1,levelsA,name2,y)</li><li>addCoupling(name1,levelsA,name2,levelsB,y)</li></ul></div><h2>Description<a name="2"></a></h2><div><ul><li>addCoupling(name1,name2,y) couples the two subsystems <i>name1</i> and <i>name2</i> with coupling strength <i>y</i>.</li><li>addCoupling(name1,levelsA,name2,y) <i>levelsA</i> is a vector of length 2. Couples the transition betweens levels <i>levelsA(1)</i> and <i>levelsA(2)</i> of subsystem <i>name1</i> to subsystem <i>name2</i>.</li><li>addCoupling(name1,levelsA,name2,levelsB,y) <i>levelsA</i> and levelsB_ are vectors of length 2. Couples the transition betweens levels <i>levelsA(1)</i> and <i>levelsA(2)</i> of subsystem <i>name1</i> to the transition betweens levels <i>levelsB(1)</i> and <i>levelsB(2)</i> of subsystem <i>name2</i>.</li></ul></div><h2>Detailed Description and Examples<a name="3"></a></h2><p>Coupling between two subsystems A and B is based upon the lowering and raising operators <img src="addCoupling_doc_eq12338736031346818973.png" alt="$\sigma^{-}$"> and <img src="addCoupling_doc_eq03817543633985100034.png" alt="$\sigma^{+}$"> of these systems. For each coupling a Hamiltonian is added to the total Hamiltonian of the system.</p><p><img src="addCoupling_doc_eq14644617849222011619.png" alt="$$H_y = y (\sigma_A^{+}\sigma_B^{-} + \sigma_A^{-}\sigma_B^{+})$$"></p><p>if the level option is given when calling the function, not the full lowering and raising operators are used but rather operaters which perform lowering and raising only between the specified levels.</p><h2>Example of a qbit coupled to a mode of the lightfield.<a name="4"></a></h2><pre class="codeinput">s = System;
+s.addEntity(Nlevel(1),<span class="string">'qbit'</span>);
+s.addEntity(Qoscillator(3,1),<span class="string">'lightfield'</span>);
+s.addCoupling(<span class="string">'qbit'</span>,<span class="string">'lightfield'</span>,0.05);
+s.addExternalField(Gausspulse(0.04,50,15,1),<span class="string">'qbit'</span>); <span class="comment">%external laser pulse excites the system</span>
+s.setTimestep(0.1);
+s.simulate();
+
+<span class="comment">%plot part of the gained data</span>
+plot(s.time, s.getEnergy(<span class="string">'qbit'</span>));
+hold <span class="string">on</span>;
+plot(s.time, s.getEnergy(<span class="string">'lightfield'</span>));
+plot(s.time, s.getOpValue(s.H));
+s.plotEfields;
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Energy'</span>);
+title(<span class="string">'Qbit Coupled to a Lightfield'</span>);
+thelegend = legend(<span class="string">'qbit'</span> ,<span class="string">'lightfield'</span>,<span class="string">'total'</span>,<span class="string">'laserpuls'</span>,<span class="string">'Location'</span>,<span class="string">'northeast'</span>);
+set(thelegend,<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="addCoupling_doc_01.png" alt=""> <h2>Example of specified couplings a seen in the Figure below<a name="5"></a></h2><pre class="codeinput">clear; close <span class="string">all</span>;
+s = System;
+a1 = Nlevel([1 1]); <span class="comment">%equidistant three level subsystem</span>
+a2 = Nlevel([1 1]);
+s.addEntity(a1,<span class="string">'a1'</span>);
+s.addEntity(a2,<span class="string">'a2'</span>);
+s.addCoupling(<span class="string">'a1'</span>,[2 1] ,<span class="string">'a2'</span>, [1 0], 0.05);
+s.addCoupling(<span class="string">'a1'</span>, [1 0],<span class="string">'a2'</span>,[1 0],0.05);
+s.addExternalField(Gausspulse(0.05,50,15,1),<span class="string">'a1'</span>);
+s.setTmax(400);
+s.setTimestep(0.1);
+s.simulate();
+<span class="comment">%plot part of the gained data</span>
+plot(s.time, s.getEnergy(<span class="string">'a1'</span>));
+hold <span class="string">on</span>;
+plot(s.time, s.getEnergy(<span class="string">'a2'</span>));
+plot(s.time, s.getOpValue(s.H));
+xlabel(<span class="string">'Time in s'</span>);
+ylabel(<span class="string">'Energy in J'</span>);
+title(<span class="string">'Gap Test'</span>);
+thelegend = legend(<span class="string">'a1'</span> ,<span class="string">'a2'</span>,<span class="string">'Total'</span>,<span class="string">'Location'</span>,<span class="string">'northeast'</span>);
+set(thelegend,<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="addCoupling_doc_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% addCoupling
+% Implements dipole coupling between two subsystems.
+
+
+%% Syntax
+% * addCoupling(name1,name2,y) 
+% * addCoupling(name1,levelsA,name2,y)
+% * addCoupling(name1,levelsA,name2,levelsB,y)
+
+%% Description
+% * addCoupling(name1,name2,y) couples the two subsystems _name1_ and _name2_ with coupling strength _y_.
+% * addCoupling(name1,levelsA,name2,y) _levelsA_ is a vector of length 2. Couples the transition betweens levels _levelsA(1)_ and _levelsA(2)_
+% of subsystem _name1_ to subsystem _name2_.
+% * addCoupling(name1,levelsA,name2,levelsB,y) _levelsA_ and levelsB_ are vectors of length 2. Couples the transition betweens levels _levelsA(1)_
+% and _levelsA(2)_ of subsystem _name1_ to the transition betweens levels _levelsB(1)_ and _levelsB(2)_ of subsystem _name2_.
+
+%% Detailed Description and Examples
+% Coupling between two subsystems A and B is based upon the lowering and raising operators $\sigma^{-}$ and $\sigma^{+}$ of these systems. 
+% For each coupling a Hamiltonian is added to the total Hamiltonian of the system. 
+%
+% $$H_y = y (\sigma_A^{+}\sigma_B^{-} + \sigma_A^{-}\sigma_B^{+})$$
+%
+% if the level option is given when calling the function, not the full lowering and raising operators are used
+% but rather operaters which perform lowering and raising only between the specified levels.
+
+%% Example of a qbit coupled to a mode of the lightfield.
+
+s = System;
+s.addEntity(Nlevel(1),'qbit');
+s.addEntity(Qoscillator(3,1),'lightfield');
+s.addCoupling('qbit','lightfield',0.05);
+s.addExternalField(Gausspulse(0.04,50,15,1),'qbit'); %external laser pulse excites the system
+s.setTimestep(0.1);
+s.simulate();
+
+%plot part of the gained data
+plot(s.time, s.getEnergy('qbit'));
+hold on;
+plot(s.time, s.getEnergy('lightfield'));
+plot(s.time, s.getOpValue(s.H));
+s.plotEfields;
+xlabel('Time');
+ylabel('Energy');
+title('Qbit Coupled to a Lightfield');
+thelegend = legend('qbit' ,'lightfield','total','laserpuls','Location','northeast');
+set(thelegend,'FontSize',16);
+
+%% Example of specified couplings a seen in the Figure below
+clear; close all;
+s = System;
+a1 = Nlevel([1 1]); %equidistant three level subsystem 
+a2 = Nlevel([1 1]);
+s.addEntity(a1,'a1');
+s.addEntity(a2,'a2');
+s.addCoupling('a1',[2 1] ,'a2', [1 0], 0.05);
+s.addCoupling('a1', [1 0],'a2',[1 0],0.05);
+s.addExternalField(Gausspulse(0.05,50,15,1),'a1');
+s.setTmax(400);
+s.setTimestep(0.1);
+s.simulate();
+%plot part of the gained data
+plot(s.time, s.getEnergy('a1'));
+hold on;
+plot(s.time, s.getEnergy('a2'));
+plot(s.time, s.getOpValue(s.H));
+xlabel('Time in s');
+ylabel('Energy in J');
+title('Gap Test');
+thelegend = legend('a1' ,'a2','Total','Location','northeast');
+set(thelegend,'FontSize',16);
+##### SOURCE END #####
+--></body></html>

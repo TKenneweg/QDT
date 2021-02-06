@@ -1,0 +1,132 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>addDecoherence</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-07-09"><meta name="DC.source" content="addDecoherence_doc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>addDecoherence</h1><!--introduction--><p>Implements a pure dephasing process via the Lindblad master equation in a specified subsystem</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Detailed Description and Examples</a></li><li><a href="#4">Example of a qbit coupled to a lightfield.</a></li></ul></div><h2>Syntax<a name="1"></a></h2><div><ul><li>addDecoherence(name,decay_time)</li><li>addDecoherence(name,decay_time,levels)</li><li>addDecoherence(interval,name,decay_time,levels)</li></ul></div><h2>Description<a name="2"></a></h2><div><ul><li>addDecoherence(name,decay_time) adds a decoherence effect with decay time of <i>decay_time</i> to the subsystem with name <i>name</i>.</li><li>addDecoherence(name,decay_time,levels) <i>levels</i> takes a vector of length 2. Adds a decoherence effect with decay time of <i>decay_time</i> between the levels <i>levels(2)</i> and <i>levels(1)</i> to the subsystem with name <i>name</i>.</li><li>addDecoherence(interval,name,decay_time) interval takes a vector of length 2. Adds a decoherence effect with decay time of <i>decay_time</i> to the subsystem with name <i>name</i>, within the timeframe specified by <i>interval(1)</i> and <i>interval(2)</i>.</li></ul></div><h2>Detailed Description and Examples<a name="3"></a></h2><p>Decoherence between different levels within one subsystem is realised by the Lindblad master equation. The Liouville von Neumann Equation is expanded by an additional term, resulting in:</p><p><img src="addDecoherence_doc_eq15790256513577022317.png" alt="$$\rho' = [H,\rho] +  \sum\limits_i \frac{1}{T_i} (R_i \rho R_i^{\dagger}  - \frac{1}{2} R_i^{\dagger} R_i \rho - \frac{1}{2} \rho R_i^{\dagger}  R_i)$$"></p><p>where <img src="addDecoherence_doc_eq03418928397651894374.png" alt="$R_i$"> denotes the jumping Operator. If <img src="addDecoherence_doc_eq03418928397651894374.png" alt="$R_i$"> takes on a specific form, the Lindblad equation models a pure loss of phase information between the different levels of a subsystem. This loss progresses with a lifetime of <img src="addDecoherence_doc_eq09759254088599122984.png" alt="$T_i$">.</p><h2>Example of a qbit coupled to a lightfield.<a name="4"></a></h2><pre class="codeinput">s = System;
+s.addEntity(Nlevel(1),<span class="string">'qbit'</span>);
+s.addEntity(Qoscillator(3,1),<span class="string">'lightfield'</span>);
+s.addCoupling(<span class="string">'qbit'</span>,<span class="string">'lightfield'</span>,0.05);
+s.addDecoherence(<span class="string">'qbit'</span>,40);
+s.addExternalField(Gausspulse(0.04,50,15,1),<span class="string">'qbit'</span>);
+s.setTimestep(0.1);
+s.simulate();
+
+<span class="comment">%plot the gained data</span>
+plot(s.time, s.getEnergy(<span class="string">'qbit'</span>));
+hold <span class="string">on</span>;
+plot(s.time, s.getEnergy(<span class="string">'lightfield'</span>));
+plot(s.time, s.getOpValue(s.H));
+s.plotEfields;
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Energy'</span>);
+title(<span class="string">'Qbit Coupled to a Lightfield'</span>);
+thelegend = legend(<span class="string">'qbit'</span> ,<span class="string">'lightfield'</span>,<span class="string">'total'</span>,<span class="string">'laserpuls'</span>,<span class="string">'Location'</span>,<span class="string">'northeast'</span>);
+set(thelegend,<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="addDecoherence_doc_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% addDecoherence
+% Implements a pure dephasing process via the Lindblad master equation in a specified subsystem
+%% Syntax
+% * addDecoherence(name,decay_time)
+% * addDecoherence(name,decay_time,levels)
+% * addDecoherence(interval,name,decay_time,levels)
+%% Description
+% * addDecoherence(name,decay_time) adds a decoherence effect with decay time of _decay_time_ to the subsystem with name _name_.
+% * addDecoherence(name,decay_time,levels) _levels_ takes a vector of length 2. Adds a decoherence effect with decay time of _decay_time_
+% between the levels _levels(2)_ and _levels(1)_ to the subsystem with name _name_.
+% * addDecoherence(interval,name,decay_time) interval takes a vector of length 2. Adds a decoherence effect with decay time of _decay_time_ to the subsystem with name _name_,
+% within the timeframe specified by _interval(1)_ and _interval(2)_.
+%% Detailed Description and Examples
+% Decoherence between different levels within one subsystem is realised by the Lindblad master equation. The Liouville von Neumann Equation is expanded by an additional term, resulting in:
+%
+% $$\rho' = [H,\rho] +  \sum\limits_i \frac{1}{T_i} (R_i \rho R_i^{\dagger}  - \frac{1}{2} R_i^{\dagger} R_i \rho - \frac{1}{2} \rho R_i^{\dagger}  R_i)$$
+%
+% where $R_i$ denotes the jumping Operator. If $R_i$ takes on a specific form, the Lindblad equation models a pure loss of phase information between the different levels of a subsystem. 
+% This loss progresses with a lifetime of $T_i$.
+%% Example of a qbit coupled to a lightfield.
+s = System;
+s.addEntity(Nlevel(1),'qbit');
+s.addEntity(Qoscillator(3,1),'lightfield');
+s.addCoupling('qbit','lightfield',0.05);
+s.addDecoherence('qbit',40);
+s.addExternalField(Gausspulse(0.04,50,15,1),'qbit');
+s.setTimestep(0.1);
+s.simulate();
+
+%plot the gained data
+plot(s.time, s.getEnergy('qbit'));
+hold on;
+plot(s.time, s.getEnergy('lightfield'));
+plot(s.time, s.getOpValue(s.H));
+s.plotEfields;
+xlabel('Time');
+ylabel('Energy');
+title('Qbit Coupled to a Lightfield');
+thelegend = legend('qbit' ,'lightfield','total','laserpuls','Location','northeast');
+set(thelegend,'FontSize',16);
+##### SOURCE END #####
+--></body></html>

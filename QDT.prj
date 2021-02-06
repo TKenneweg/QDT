@@ -1,0 +1,378 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="C:\Users\Kosnoros\Desktop\firstrelease\Toolbox_release_July2019\QDT.prj" location="C:\Users\Kosnoros\Desktop\firstrelease\Toolbox_release_July2019" name="QDT" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>QDT</param.appname>
+    <param.authnamewatermark>T. Kenneweg, S. Müller, W. Pfeiffer</param.authnamewatermark>
+    <param.email>t.kenneweg@gmail.com</param.email>
+    <param.company>None</param.company>
+    <param.summary>A Matlab toolbox that allows you to quickly simulate and analyze coupled quantum systems in the energy eigenbasis.</param.summary>
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}\QDT.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>8ad65792-dc87-4292-a239-9bbb3af2e7f9</param.guid>
+    <param.exclude.filters />
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;examples&gt;
+   &lt;exampleCategory name="Docfiles"&gt;
+      &lt;example name="Nlevel_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/Nlevel_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/Nlevel_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="Qoscillator_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/Qoscillator_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/Qoscillator_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="addCoupling_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/addCoupling_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/addCoupling_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/addCoupling_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/addCoupling_doc_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/addCoupling_doc_02.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="addDecoherence_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/addDecoherence_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/addDecoherence_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/addDecoherence_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/addDecoherence_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="addDissipation_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/addDissipation_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/addDissipation_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/addDissipation_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/addDissipation_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="addExternalField_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/addExternalField_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/addExternalField_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="animateBlochSphere_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/animateBlochSphere_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/animateBlochSphere_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="blochsphere_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/blochsphere_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/blochsphere_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/blochsphere_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/blochsphere_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="fft_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/fft_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/fft_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/fft_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/fft_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="generate_CMDS_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/generate_CMDS_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/generate_CMDS_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="getBlochvector_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getBlochvector_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getBlochvector_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="getConcurrence_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getConcurrence_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getConcurrence_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getConcurrence_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getConcurrence_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getEnergy_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getEnergy_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getEnergy_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getEnergy_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getEnergy_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getEntanglement_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getEntanglement_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getEntanglement_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getEntanglement_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getEntanglement_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getOpValue_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getOpValue_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getOpValue_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getOpValue_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getOpValue_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getPolarisation_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getPolarisation_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getPolarisation_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getPolarisation_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getPolarisation_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getPopulation_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getPopulation_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getPopulation_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/getPopulation_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/getPopulation_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="getReducedMatrix_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getReducedMatrix_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getReducedMatrix_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="getRefractiveIndex_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getRefractiveIndex_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getRefractiveIndex_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="getSubsystem_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getSubsystem_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getSubsystem_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="getSusceptibility_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/getSusceptibility_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/getSusceptibility_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="lso_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/lso_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/lso_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="parallel_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/parallel_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/parallel_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="plotCMDS_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/plotCMDS_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/plotCMDS_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="plotRoh_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/plotRoh_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/plotRoh_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/plotRoh_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/plotRoh_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="plotoccupation_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/plotoccupation_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/plotoccupation_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/plotoccupation_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/plotoccupation_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="setDipoleQ_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setDipoleQ_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setDipoleQ_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setDipole_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setDipole_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setDipole_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setEfieldparameter_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setEfieldparameter_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setEfieldparameter_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setPcScheme_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setPcScheme_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setPcScheme_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setReturnFunction_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setReturnFunction_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setReturnFunction_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setState_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setState_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setState_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"&gt;/Docfiles/html/setState_doc.png&lt;/file&gt;
+         &lt;file type="image"&gt;/Docfiles/html/setState_doc_01.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="setdelayMaxs_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setdelayMaxs_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setdelayMaxs_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="setdelaySteps_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/setdelaySteps_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/setdelaySteps_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="simulate_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/simulate_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/simulate_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="traceOut_doc" type="html"&gt;
+         &lt;file type="source"&gt;/Docfiles/html/traceOut_doc.html&lt;/file&gt;
+         &lt;file type="main"&gt;/Docfiles/traceOut_doc.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+   &lt;/exampleCategory&gt;
+&lt;/examples&gt;</param.examples>
+    <param.demosxml />
+    <param.apps />
+    <param.registered.apps />
+    <param.docs />
+    <param.getting.started.guide />
+    <param.matlabpath.excludes />
+    <param.javaclasspath.excludes />
+    <param.exported.on.package>false</param.exported.on.package>
+    <param.release.start />
+    <param.release.end />
+    <param.release.current.only>false</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.exclude.pcodedmfiles />
+      <param.demosxml />
+      <param.apps />
+      <param.registered.apps />
+      <param.docs />
+      <param.getting.started.guide />
+      <param.matlabpath.excludes />
+      <param.javaclasspath.excludes />
+      <param.exported.on.package />
+      <param.release.start />
+      <param.release.end />
+      <param.release.current.only />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>C:\Users\Kosnoros\Desktop\firstrelease\Toolbox_release_July2019</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}\@CMDS</file>
+      <file>${PROJECT_ROOT}\@System</file>
+      <file>${PROJECT_ROOT}\cellIkron.m</file>
+      <file>${PROJECT_ROOT}\Coupling.m</file>
+      <file>${PROJECT_ROOT}\CW.m</file>
+      <file>${PROJECT_ROOT}\demos.xml</file>
+      <file>${PROJECT_ROOT}\Docfiles</file>
+      <file>${PROJECT_ROOT}\Efield.m</file>
+      <file>${PROJECT_ROOT}\Example_basics.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter1.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter2.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter3.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter4.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter5.m</file>
+      <file>${PROJECT_ROOT}\Example_chapter7.m</file>
+      <file>${PROJECT_ROOT}\Example_superluminal.m</file>
+      <file>${PROJECT_ROOT}\Fourpulse.m</file>
+      <file>${PROJECT_ROOT}\Gausspulse.m</file>
+      <file>${PROJECT_ROOT}\html_doc</file>
+      <file>${PROJECT_ROOT}\Icellkron.m</file>
+      <file>${PROJECT_ROOT}\LICENSE.txt</file>
+      <file>${PROJECT_ROOT}\Lindbladterm.m</file>
+      <file>${PROJECT_ROOT}\Nlevel.m</file>
+      <file>${PROJECT_ROOT}\OneWayCoupling.m</file>
+      <file>${PROJECT_ROOT}\photonsystem.m</file>
+      <file>${PROJECT_ROOT}\plotcavity.m</file>
+      <file>${PROJECT_ROOT}\Qoscillator.m</file>
+      <file>${PROJECT_ROOT}\returnExcited.m</file>
+      <file>${PROJECT_ROOT}\Threepulse.m</file>
+      <file>${PROJECT_ROOT}\Twopulse.m</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\Kosnoros\Desktop\firstrelease\Toolbox_release_July2019" name="QDT.mltbx" optional="false">C:\Users\Kosnoros\Desktop\firstrelease\Toolbox_release_July2019\QDT.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2018b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="gpucoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="polyspacebugfinder" />
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <gpucoder>
+          <enabled>true</enabled>
+        </gpucoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <polyspacebugfinder>
+          <enabled>true</enabled>
+        </polyspacebugfinder>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
